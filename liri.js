@@ -13,9 +13,20 @@ const b = process.argv[3];
 const concertThis = function() {
   request("https://rest.bandsintown.com/artists/" + b + "/events?app_id=codingbootcamp", function(error, response, body) {
     
-    console.log(JSON.parse(body));
-    // console.log(JSON.parse(body).venue);
-    // console.log(JSON.parse(body).datetime);
+    // console.log(JSON.parse(body));
+    for (let i = 0; i < 10; i++) {
+      const venueName = body[i].venue;
+      const venueLocation = body[i].venue;
+      const date = body[i].datetime;
+      
+      console.log(`
+      Venue: ${venueName}
+      Location: ${venueLocation}
+      Date: ${date}
+      `)
+    }
+
+   
   })
 }
 
